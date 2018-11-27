@@ -1,0 +1,12 @@
+---
+version: '3.4'
+services:
+
+  datascience:
+    image: jupyter/all-spark-notebook:8ccdfc1da8d5
+    ports:
+      - "8888:8888"   
+      - "4040:4040" 
+    volumes:
+      - ./src/:/home/jovyan/work
+      - ./keys/:/home/jovyan/keys
