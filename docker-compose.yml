@@ -3,10 +3,13 @@ version: '3.4'
 services:
 
   datascience:
-    image: jupyter/all-spark-notebook:8ccdfc1da8d5
+    build:
+      context: .
     ports:
       - "8888:8888"   
       - "4040:4040" 
     volumes:
       - ./src/:/home/jovyan/work
       - ./keys/:/home/jovyan/keys
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS="/home/jovyan/keys/bitcoin-graph-212514-7bd6a39573f8.json"
